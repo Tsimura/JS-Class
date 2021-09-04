@@ -30,7 +30,7 @@
 //то вывести строку "Здравствуйте!"
 //иначе выводить строку "Неверный пароль!"
 
-let loggin = prompt("Введи логин!");
+// let loggin = prompt("Введи логин!");
 
 // if (loggin === "Админ") {
 //   console.log(loggin);
@@ -47,23 +47,45 @@ let loggin = prompt("Введи логин!");
 //   console.log("Я вас не знаю");
 // }
 
-switch (loggin) {
-  case "Админ":
-    const pass = prompt("Введите пароль!");
-    switch (pass) {
-      case "Я главный":
-        console.log("Здравствуйте");
-        break;
-      case null:
-        console.log("Отменено!");
-        break;
-      default:
-        console.log("Неверный пароль!");
-    }
-    break;
-  case null:
-    console.log("Отменено!");
-    break;
-  default:
-    console.log("Я вас не знаю");
+// switch (loggin) {
+//   case "Админ":
+//     const pass = prompt("Введите пароль!");
+//     switch (pass) {
+//       case "Я главный":
+//         console.log("Здравствуйте");
+//         break;
+//       case null:
+//         console.log("Отменено!");
+//         break;
+//       default:
+//         console.log("Неверный пароль!");
+//     }
+//     break;
+//   case null:
+//     console.log("Отменено!");
+//     break;
+//   default:
+//     console.log("Я вас не знаю");
+// }
+
+//6. При загрузке страницы пользователю предлагается
+//в prompt ввести число. Ввод добавляется к начению
+//переменной total.
+//Операция ввода числа продолжается до тех пор,
+//пока пользователь не нажмет кнопку Cancel в prompt.
+//После того как пользователь прекратил ввод нажав на
+//кнопку Cancel, показать alert со строкой "Общая сумма введенных чисел равна [число]."
+//Делать проверку,что пользователь ввел именно число,
+//а не произвольный набор символов, не нужно.
+
+
+let userNumber = prompt("Введите число!");
+let total = 0
+
+while (userNumber) {
+  total += Number(userNumber);
+  userNumber = prompt("Введите число!");
 }
+
+
+console.log(total) 
