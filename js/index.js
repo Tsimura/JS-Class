@@ -1,4 +1,17 @@
-//3. Напишите цыкл, который выводит в консоль
+//2. Напишите программу, которая получит от пользователя
+//число (количество минут) и выведет в консоль
+//строку в формате часов и минут
+// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+// 70 === 01:10
+
+// let giveMinute = prompt("Введи минуты");
+// const hours = Math.floor(giveMinute / 60);
+// const minute = giveMinute % 60;
+// const modifedHours = String(hours).padStart(2, 0);
+// const modifedMinute = String(minute).padStart(2, 0);
+// console.log(`${modifedHours}:${modifedMinute}`);
+
+//3. Напишите цикл, который выводит в консоль
 //числа от max до min по убыванию
 
 // const max = 50;
@@ -78,7 +91,6 @@
 //Делать проверку,что пользователь ввел именно число,
 //а не произвольный набор символов, не нужно.
 
-
 // let userNumber = prompt("Введите число!");
 // let total = 0
 
@@ -87,7 +99,7 @@
 //   userNumber = prompt("Введите число!");
 // }
 
-// console.log(total) 
+// console.log(total)
 
 //7. Напишите цикл, который предлагает ввести
 //число больше 100 через prompt.
@@ -97,32 +109,30 @@
 //введёт число больше 100, либо не нажмет кнопку
 //Отмена в prompt
 
-let userNumber = prompt("Введите число больше 100")
+let userNumber = prompt('Введите число больше 100');
 let check = false;
 
 do {
-    if (userNumber < 100) {
-        check = true;
-        userNumber = prompt("Введите число больше 100");
-    } else {
-        check = false;
-    }
-    
-} while (check)
+  if (userNumber < 100) {
+    check = true;
+    userNumber = prompt('Введите число больше 100');
+  } else {
+    check = false;
+  }
+} while (check);
 
-console.log(`Вы ввели ${userNumber}`)
+console.log(`Вы ввели ${userNumber}`);
 
 // while (userNumber < 100) {
 //     userNumber = prompt("Введите число больше 100");
 // } console.log(`Вы ввели ${userNumber}`)
 
-let userNumber = prompt("Введите число!");
-let total = 0
+let userNumber = prompt('Введите число!');
+let total = 0;
 
 while (userNumber) {
   total += Number(userNumber);
-  userNumber = prompt("Введите число!");
+  userNumber = prompt('Введите число!');
 }
 
-
-console.log(total) 
+console.log(total);
