@@ -165,8 +165,36 @@ const colors = ["blue", "yellow", "olive", "fuchsia", "lime", "aqua", "maroon"];
 
 // console.log(findTheColor("gblue"));
 
-function findTheColor(color) {
-  document.body.style.background = colors.includes(color) ? color : "red";
+// function findTheColor(color) {
+//   document.body.style.background = colors.includes(color) ? color : "red";
+// }
+
+// console.log(findTheColor("fuchsia"));
+
+
+//Напишите функции для работы с массивом
+//add(name) добавляет курс в конец коллекции
+//removeCourse(name) удаляет курс из коллекции
+//updateCourse(oldName, newName) изменяет имя на новое
+const course = [];
+function addCourse(name) {
+  course.push(name)
+
+}
+function removeCorse(name) {
+  const indexOfName = course.indexOf(name)
+  
+course.splice(indexOfName, 1)
+}
+function updateCourse(oldName, newName) {
+
+  const indexOfName = course.indexOf(oldName)
+  course.splice(indexOfName, 1, newName)
 }
 
-console.log(findTheColor("fuchsia"));
+addCourse("HTML")
+addCourse("JS")
+addCourse("CSS")
+removeCorse("CSS")
+updateCourse("HTML", "React")
+console.log(course)
