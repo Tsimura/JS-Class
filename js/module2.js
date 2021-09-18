@@ -95,19 +95,57 @@
 //аргументов и возвращает их среднее значение.
 //Добавить проверку, что аргументы это числа.
 
-function caculculateAverage(...args) {
-    let total = 0;
-    let count = 0;
-    for (const arg of args) {
-        if (typeof arg !== `number`) {
-          console.log(`${arg} это не число`)
-            continue
-        } 
+// function caculculateAverage(...args) {
+//     let total = 0;
+//     let count = 0;
+//     for (const arg of args) {
+//         if (typeof arg !== `number`) {
+//           console.log(`${arg} это не число`)
+//             continue
+//         } 
         
-        total += arg
-        count += 1
-    } return Math.round(total / count)
+//         total += arg
+//         count += 1
+//     } return Math.round(total / count)
    
-}
+// }
 
-console.log(caculculateAverage(2, 5, 35, 56, 12, 24, 7, 80, 3));
+// console.log(caculculateAverage(2, 5, 35, 56, 12, 24, 7, 80, 3));
+
+
+
+
+//Напиши функцию findLongestWord(string)
+//которая принимает произвольную строку
+//состоящую только из слов разделенных
+//пробелом (параметр string)
+//и возвращает самое длинное слово в этой строке
+
+// function findLongestWord(string) {
+//     const stringToArray = string.split(' ');
+//     let longestWord = stringToArray[0];
+//     for (let i = 0; i < stringToArray.length; i++) {
+//         if (longestWord.length < stringToArray[i].length) {
+//             longestWord = stringToArray[i];
+//         }
+        
+//     }
+//     return longestWord;
+    
+// }
+// console.log(findLongestWord('которая принимает произвольную строку'));
+
+// function findSmallestWord(string) {
+//         const stringToArray = string.split(' ');
+//     let smallestWord = stringToArray[0];
+//     for (let i = 0; i < stringToArray.length; i++) {
+//         if (smallestWord.length > stringToArray[i].length) {
+//             smallestWord = stringToArray[i];
+//         }
+        
+//     }
+//     return smallestWord;
+    
+// }
+// console.log(findSmallestWord('которая принимает произвольную строку'));
+
