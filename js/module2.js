@@ -11,14 +11,13 @@
 // styles.unshift("Рэп", "Регги");
 // console.log(styles);
 
-
 //Напиши функцию min(a, b), которая возвращает
 //меньшее из чисел a, b
 //нужно добавить проверку, что функция получает числа
 
 // function min(a, b) {
 //     let c = 0;
-    
+
 //     return Math.min(a, b);
 // }
 // console.log(min(3, 5));
@@ -41,9 +40,6 @@
 // }
 // console.log(min(3, 5));
 
-
-
-
 // /Напишите функцию logItems(array) которая принимает
 //массив и использует цикл for, который для каждого
 //элемента массива будет выводить сообщение в формате
@@ -51,20 +47,16 @@
 //Нумерация элементов должна начинаться с 1.
 //['Джаз', 'Блюз', 'Рок-н-ролл', 'Регги', 'Рэп']
 
-
-
 // function logItems(array) {
-   
+
 // for (let i = 0; i < array.length; i++) {
- 
+
 //     console.log(`${i + 1} - ${array[i]}`)
-    
+
 // }
 
 // }
 // logItems(['Джаз', 'Блюз', 'Рок-н-ролл', 'Регги', 'Рэп'])
-
-
 
 //Напиши функцию findSmallerNumber(numbers)
 //которая ищет самое маленькое число в массиве
@@ -87,7 +79,6 @@
 //     return Math.min(...numbers)
 // }
 
-
 // console.log(findSmallerNumber([2, 5, 35, 56, 12, 24, 7, 80, 3]));
 
 //Напиши функцию caculculateAverage()
@@ -102,18 +93,15 @@
 //         if (typeof arg !== `number`) {
 //           console.log(`${arg} это не число`)
 //             continue
-//         } 
-        
+//         }
+
 //         total += arg
 //         count += 1
 //     } return Math.round(total / count)
-   
+
 // }
 
 // console.log(caculculateAverage(2, 5, 35, 56, 12, 24, 7, 80, 3));
-
-
-
 
 //Напиши функцию findLongestWord(string)
 //которая принимает произвольную строку
@@ -128,10 +116,10 @@
 //         if (longestWord.length < stringToArray[i].length) {
 //             longestWord = stringToArray[i];
 //         }
-        
+
 //     }
 //     return longestWord;
-    
+
 // }
 // console.log(findLongestWord('которая принимает произвольную строку'));
 
@@ -142,10 +130,43 @@
 //         if (smallestWord.length > stringToArray[i].length) {
 //             smallestWord = stringToArray[i];
 //         }
-        
+
 //     }
 //     return smallestWord;
-    
+
 // }
 // console.log(findSmallestWord('которая принимает произвольную строку'));
 
+//Напишиет функцию findTheColor()
+//которая принимает название цвета
+//определяет его наличие в массиве
+//если цвет есть, усталавливет его как фон документа
+//если цвета нет выводит console.error('Такой цвет не найден');
+//и устанавливает цвет документа красный
+// document.body.style.background = 'red';
+const colors = ["blue", "yellow", "olive", "fuchsia", "lime", "aqua", "maroon"];
+
+// function findTheColor(color) {
+//   if (colors.includes(color)) {
+//     document.body.style.background = color;
+//   } else {
+//     document.body.style.background = "red";
+//   }
+// }
+
+// console.log(findTheColor("lime"));
+
+// function findTheColor(color) {
+//   document.body.style.background = "red";
+//   if (colors.includes(color)) {
+//     document.body.style.background = color;
+//   }
+// }
+
+// console.log(findTheColor("gblue"));
+
+function findTheColor(color) {
+  document.body.style.background = colors.includes(color) ? color : "red";
+}
+
+console.log(findTheColor("fuchsia"));
