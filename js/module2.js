@@ -144,7 +144,7 @@
 //если цвета нет выводит console.error('Такой цвет не найден');
 //и устанавливает цвет документа красный
 // document.body.style.background = 'red';
-const colors = ["blue", "yellow", "olive", "fuchsia", "lime", "aqua", "maroon"];
+// const colors = ["blue", "yellow", "olive", "fuchsia", "lime", "aqua", "maroon"];
 
 // function findTheColor(color) {
 //   if (colors.includes(color)) {
@@ -171,30 +171,57 @@ const colors = ["blue", "yellow", "olive", "fuchsia", "lime", "aqua", "maroon"];
 
 // console.log(findTheColor("fuchsia"));
 
-
 //Напишите функции для работы с массивом
 //add(name) добавляет курс в конец коллекции
 //removeCourse(name) удаляет курс из коллекции
 //updateCourse(oldName, newName) изменяет имя на новое
-const course = [];
-function addCourse(name) {
-  course.push(name)
 
-}
-function removeCorse(name) {
-  const indexOfName = course.indexOf(name)
-  
-course.splice(indexOfName, 1)
-}
-function updateCourse(oldName, newName) {
+// const course = [];
+// function addCourse(name) {
+//   course.push(name)
 
-  const indexOfName = course.indexOf(oldName)
-  course.splice(indexOfName, 1, newName)
-}
+// }
+// function removeCorse(name) {
+//   const indexOfName = course.indexOf(name)
 
-addCourse("HTML")
-addCourse("JS")
-addCourse("CSS")
-removeCorse("CSS")
-updateCourse("HTML", "React")
-console.log(course)
+// course.splice(indexOfName, 1)
+// }
+// function updateCourse(oldName, newName) {
+
+//   const indexOfName = course.indexOf(oldName)
+//   course.splice(indexOfName, 1, newName)
+// }
+
+// addCourse("HTML")
+// addCourse("JS")
+// addCourse("CSS")
+// removeCorse("CSS")
+// updateCourse("HTML", "React")
+// console.log(course)
+
+// Напишите скрипт который заменяет регистр каждого символа
+//в стороке на противоположный
+//Например 'JavaScript' должен вернуть 'jAVAsCRIPT'
+
+function updateRegister(string) {
+  const stringLetters = string.split('');
+  let reversLetter = [];
+
+  for (let stringLetter of stringLetters) {
+    let newLetter;
+
+    if (stringLetter !== stringLetter.toLowerCase()) {
+      newLetter = stringLetter.toLowerCase();
+      // console.log(newLetter);
+      reversLetter.push(newLetter);
+      continue;
+    }
+    newLetter = stringLetter.toUpperCase();
+    reversLetter.push(newLetter);
+    // console.log(newLetter);
+  }
+  console.log(reversLetter);
+  console.log(reversLetter.join(' '));
+  return reversLetter.join(' ');
+}
+updateRegister('JavaScript');
