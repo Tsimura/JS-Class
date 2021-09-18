@@ -82,10 +82,32 @@
 
 // console.log(findSmallerNumber([2, 5, 35, 56, 12, 24, 7, 80, 3, -1]));
 
-function findSmallerNumber(numbers) {
-    // let smallestNumber = Math.min(...numbers);
-    return Math.min(...numbers)
+// function findSmallerNumber(numbers) {
+//     // let smallestNumber = Math.min(...numbers);
+//     return Math.min(...numbers)
+// }
+
+
+// console.log(findSmallerNumber([2, 5, 35, 56, 12, 24, 7, 80, 3]));
+
+//Напиши функцию caculculateAverage()
+//которая принимает произвольное количество
+//аргументов и возвращает их среднее значение.
+//Добавить проверку, что аргументы это числа.
+
+function caculculateAverage(...args) {
+    let total = 0;
+    let count = 0;
+    for (const arg of args) {
+        if (typeof arg !== `number`) {
+          console.log(`${arg} это не число`)
+            continue
+        } 
+        
+        total += arg
+        count += 1
+    } return Math.round(total / count)
+   
 }
 
-
-console.log(findSmallerNumber([2, 5, 35, 56, 12, 24, 7, 80, 3]));
+console.log(caculculateAverage(2, 5, 35, 56, 12, 24, 7, 80, 3));
