@@ -234,6 +234,35 @@
 //Объяви приватные свойства #login #email,
 //доступ к которым сделай через геттер и сеттер login email
 
+class Client {
+    #login;
+    #email;
+    constructor(login, email) {
+        this.#login = login;
+        this.#email = email;
+    }
+    get getClientData() {
+        return {
+            login: this.#login,
+            email: this.#email,
+        }
+    }
+    set changeEmail(newEmail) {
+        this.#email = newEmail;
+    }
+}
+const clientMango = new Client('Mango', 'mango@gmail.com');
+clientMango.changeEmail = 'newMango@gmail.com';
+
+console.log(clientMango.getClientData)
+console.log(clientMango.__proto__ === Client.prototype)
+console.log(Client.prototype.__proto__ === Object.prototype)
+console.log(Client.prototype === Object.prototype)
+console.log(Client.__proto__ === Function.prototype)
+
+
+
+
 
 
 
