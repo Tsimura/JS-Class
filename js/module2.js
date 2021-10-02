@@ -235,31 +235,31 @@
 
 
 
-class Client {
-    #login;
-    #email;
-    constructor(login, email) {
-        this.#login = login;
-        this.#email = email;
-    }
-    get getClientData() {
-        return {
-            login: this.#login,
-            email: this.#email,
-        }
-    }
-    set changeEmail(newEmail) {
-        this.#email = newEmail;
-    }
-}
-const clientMango = new Client('Mango', 'mango@gmail.com');
-clientMango.changeEmail = 'newMango@gmail.com';
+// class Client {
+//     #login;
+//     #email;
+//     constructor(login, email) {
+//         this.#login = login;
+//         this.#email = email;
+//     }
+//     get getClientData() {
+//         return {
+//             login: this.#login,
+//             email: this.#email,
+//         }
+//     }
+//     set changeEmail(newEmail) {
+//         this.#email = newEmail;
+//     }
+// }
+// const clientMango = new Client('Mango', 'mango@gmail.com');
+// clientMango.changeEmail = 'newMango@gmail.com';
 
-console.log(clientMango.getClientData)
-console.log(clientMango.__proto__ === Client.prototype)
-console.log(Client.prototype.__proto__ === Object.prototype)
-console.log(Client.prototype === Object.prototype)
-console.log(Client.__proto__ === Function.prototype)
+// console.log(clientMango.getClientData)
+// console.log(clientMango.__proto__ === Client.prototype)
+// console.log(Client.prototype.__proto__ === Object.prototype)
+// console.log(Client.prototype === Object.prototype)
+// console.log(Client.__proto__ === Function.prototype)
 
 
 
@@ -267,88 +267,88 @@ console.log(Client.__proto__ === Function.prototype)
 
 // 2.
 
-const vehicles = [
-  {
-    make: 'Honda',
-    model: 'CR-V',
-    type: 'suv',
-    amount: 14,
-    price: 24045,
-    onSale: true,
-  },
-  {
-    make: 'Honda',
-    model: 'Accord',
-    type: 'sedan',
-    amount: 2,
-    price: 22455,
-    onSale: true,
-  },
-  {
-    make: 'Mazda',
-    model: 'Mazda 6',
-    type: 'sedan',
-    amount: 8,
-    price: 24195,
-    onSale: false,
-  },
-  {
-    make: 'Mazda',
-    model: 'CX-9',
-    type: 'suv',
-    amount: 7,
-    price: 31520,
-    onSale: true,
-  },
-  {
-    make: 'Toyota',
-    model: '4Runner',
-    type: 'suv',
-    amount: 19,
-    price: 34210,
-    onSale: false,
-  },
-  {
-    make: 'Toyota',
-    model: 'Sequoia',
-    type: 'suv',
-    amount: 16,
-    price: 45560,
-    onSale: false,
-  },
-  {
-    make: 'Toyota',
-    model: 'Tacoma',
-    type: 'truck',
-    amount: 4,
-    price: 24320,
-    onSale: true,
-  },
-  {
-    make: 'Ford',
-    model: 'F-150',
-    type: 'truck',
-    amount: 11,
-    price: 27110,
-    onSale: true,
-  },
-  {
-    make: 'Ford',
-    model: 'Fusion',
-    type: 'sedan',
-    amount: 13,
-    price: 22120,
-    onSale: true,
-  },
-  {
-    make: 'Ford',
-    model: 'Explorer',
-    type: 'suv',
-    amount: 6,
-    price: 31660,
-    onSale: false,
-  },
-];
+// const vehicles = [
+//   {
+//     make: 'Honda',
+//     model: 'CR-V',
+//     type: 'suv',
+//     amount: 14,
+//     price: 24045,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Honda',
+//     model: 'Accord',
+//     type: 'sedan',
+//     amount: 2,
+//     price: 22455,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Mazda',
+//     model: 'Mazda 6',
+//     type: 'sedan',
+//     amount: 8,
+//     price: 24195,
+//     onSale: false,
+//   },
+//   {
+//     make: 'Mazda',
+//     model: 'CX-9',
+//     type: 'suv',
+//     amount: 7,
+//     price: 31520,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Toyota',
+//     model: '4Runner',
+//     type: 'suv',
+//     amount: 19,
+//     price: 34210,
+//     onSale: false,
+//   },
+//   {
+//     make: 'Toyota',
+//     model: 'Sequoia',
+//     type: 'suv',
+//     amount: 16,
+//     price: 45560,
+//     onSale: false,
+//   },
+//   {
+//     make: 'Toyota',
+//     model: 'Tacoma',
+//     type: 'truck',
+//     amount: 4,
+//     price: 24320,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Ford',
+//     model: 'F-150',
+//     type: 'truck',
+//     amount: 11,
+//     price: 27110,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Ford',
+//     model: 'Fusion',
+//     type: 'sedan',
+//     amount: 13,
+//     price: 22120,
+//     onSale: true,
+//   },
+//   {
+//     make: 'Ford',
+//     model: 'Explorer',
+//     type: 'suv',
+//     amount: 6,
+//     price: 31660,
+//     onSale: false,
+//   },
+// ];
 
 //1.Реализовать фильтер по свойству amount и получить
 //только название модели
@@ -370,9 +370,50 @@ const vehicles = [
 
 //Получить машины на распродаже и сортировать по убыванию цены
 
-const getSortedCarsOnSale = (cars) => {
-  return cars
-    .filter(({ onSale }) => !onSale)
-    .sort((preCar, nextCar) => nextCar.price - preCar.price);
-};
-console.table(getSortedCarsOnSale(vehicles));
+// const getSortedCarsOnSale = (cars) => {
+//   return cars
+//     .filter(({ onSale }) => !onSale)
+//     .sort((preCar, nextCar) => nextCar.price - preCar.price);
+// };
+// console.table(getSortedCarsOnSale(vehicles));
+
+// /Необходимо написать функцию (isEqualSymbols), принимающую
+//в аргументах две строки и возвращающую true, если эти строки
+//состоят из идентичных букв и false в противном случае.
+
+function isEqualSymbols(str1, str2) {
+    const array1 = str1.split('').filter((item, index, array) => array.indexOf(item) === index);
+    const array2 = [...str2].filter((item, index, array) => array.indexOf(item) === index);
+    // console.log(array1);
+    // console.log(array2);
+
+    if (array1.length !== array2.length) return false;
+
+    for (let i = 0; i < array1.length; i++) {
+        if (!array1.includes(array2[i])) {
+            return false;
+        }
+        
+    }
+    return true;
+
+
+
+}
+
+
+
+
+console.log(isEqualSymbols('кот', 'токк'))
+console.log(isEqualSymbols('кот', 'тик'));
+
+
+
+
+
+isEqualSymbols('кот', 'ток'); // выведет true
+isEqualSymbols('кот', 'тик'); // выведет false
+
+
+
+
