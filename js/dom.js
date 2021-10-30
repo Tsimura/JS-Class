@@ -45,35 +45,57 @@
 // - Цвет формы в рандомном порядке меняется,
 //используя цвета из заранее подготовленного массива
 
-const forms = [
-  'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
-  'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 200px; height: 100px; border-radius: 100px / 50px;',
-  'width: 150px; height: 100px; transform: skew(20deg);',
-];
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-const randomither = (max) => {
-  return Math.floor(Math.random() * max);
-};
-const shapeEl = document.createElement('div');
+// const forms = [
+//   'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
+//   'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 200px; height: 100px; border-radius: 100px / 50px;',
+//   'width: 150px; height: 100px; transform: skew(20deg);',
+// ];
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+// const randomither = (max) => {
+//   return Math.floor(Math.random() * max);
+// };
+// const shapeEl = document.createElement('div');
 
-// shapeEl.style.cssText = forms[randomither(forms.length - 1)];
-// shapeEl.style.backgroundColor = getRandomHexColor();
-const positionEl = () => {
-  shapeEl.style.cssText = forms[randomither(forms.length - 1)];
-  shapeEl.style.backgroundColor = getRandomHexColor();
-  shapeEl.style.position = 'absolute';
-  let top =
-    100 - (shapeEl.clientHeight * 100) / document.documentElement.clientHeight;
-  let left =
-    100 - (shapeEl.clientWidth * 100) / document.documentElement.clientWidth;
-  shapeEl.style.top = `${randomither(top)}%`;
-  shapeEl.style.left = `${randomither(left)}%`;
-};
-positionEl();
-shapeEl.addEventListener('click', positionEl);
-const containerEl = document.querySelector('.container');
-containerEl.append(shapeEl);
+// // shapeEl.style.cssText = forms[randomither(forms.length - 1)];
+// // shapeEl.style.backgroundColor = getRandomHexColor();
+// const positionEl = () => {
+//   shapeEl.style.cssText = forms[randomither(forms.length - 1)];
+//   shapeEl.style.backgroundColor = getRandomHexColor();
+//   shapeEl.style.position = 'absolute';
+//   let top =
+//     100 - (shapeEl.clientHeight * 100) / document.documentElement.clientHeight;
+//   let left =
+//     100 - (shapeEl.clientWidth * 100) / document.documentElement.clientWidth;
+//   shapeEl.style.top = `${randomither(top)}%`;
+//   shapeEl.style.left = `${randomither(left)}%`;
+// };
+// positionEl();
+// shapeEl.addEventListener('click', positionEl);
+// const containerEl = document.querySelector('.container');
+// containerEl.append(shapeEl);
+
+const a = [121, 144, 19, 161, 19, 144, 19, 11];
+const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+
+function comp(a, b) {
+  if (!a || !b) return false;
+  if (a.length !== b.length) return false;
+  const sortA = [...a].sort((pre, next) => pre - next);
+  const sortB = [...b].sort((pre, next) => pre - next);
+  console.log(sortA);
+  console.log(sortB);
+  const aPow = sortA.map((e) => Math.pow(e, 2));
+  for (let i = 0; i < aPow.length; i += 1) {
+    if (aPow[i] !== sortB[i]) {
+      return false;
+    }
+  }
+  console.log(aPow);
+  return true;
+}
+
+console.log(comp(a, b));
