@@ -78,60 +78,59 @@
 // const containerEl = document.querySelector('.container');
 // containerEl.append(shapeEl);
 
+// const mediaPlayer = document.querySelector(`.player`)
+// const toggleBtn = mediaPlayer.querySelector(`.toggle`)
+// const video = mediaPlayer.querySelector(`.viewer`)
+// const skipBtns = mediaPlayer.querySelectorAll(`[data-skip]`)
+// const playerSlider = mediaPlayer.querySelectorAll(`.player__slider`)
+// const progress = mediaPlayer.querySelector(`.progress`)
+// const progressBar = mediaPlayer.querySelector(`.progress__filled`)
 
-const mediaPlayer = document.querySelector(`.player`)
-const toggleBtn = mediaPlayer.querySelector(`.toggle`)
-const video = mediaPlayer.querySelector(`.viewer`)
-const skipBtns = mediaPlayer.querySelectorAll(`[data-skip]`)
-const playerSlider = mediaPlayer.querySelectorAll(`.player__slider`)
-const progress = mediaPlayer.querySelector(`.progress`)
-const progressBar = mediaPlayer.querySelector(`.progress__filled`)
+// let mousedown = false
 
-let mousedown = false
+// // console.log(toggleBtn)
+// video.addEventListener(`play`, updateBtn)
+// video.addEventListener(`pause`, updateBtn)
+// video.addEventListener(`click`, togglePlay)
+// video.addEventListener(`timeupdate`, hundleProgress)
 
-// console.log(toggleBtn)
-video.addEventListener(`play`, updateBtn)
-video.addEventListener(`pause`, updateBtn)
-video.addEventListener(`click`, togglePlay)
-video.addEventListener(`timeupdate`, hundleProgress)
+// skipBtns.forEach(btn => btn.addEventListener(`click`, skip))
+// playerSlider.forEach(slider => slider.addEventListener(`input`, handleChangeUpdate))
+// progress.addEventListener(`click`, scrab)
 
-skipBtns.forEach(btn => btn.addEventListener(`click`, skip))
-playerSlider.forEach(slider => slider.addEventListener(`input`, handleChangeUpdate))
-progress.addEventListener(`click`, scrab)
+// progress.addEventListener(`mousedown`, () => mousedown = true)
+// progress.addEventListener(`mouseup`, () => mousedown = false)
+// progress.addEventListener(`mousemove`, event => mousedown && scrab(event) )
 
-progress.addEventListener(`mousedown`, () => mousedown = true)
-progress.addEventListener(`mouseup`, () => mousedown = false)
-progress.addEventListener(`mousemove`, event => mousedown && scrab(event) )
+// toggleBtn.addEventListener(`click`, togglePlay)
 
-toggleBtn.addEventListener(`click`, togglePlay)
+// function togglePlay() {
+//   const method = video.paused ? "play" : "pause";
+//   video[method]()
+// }
 
-function togglePlay() {
-  const method = video.paused ? "play" : "pause";
-  video[method]()
-}
+// function updateBtn() {
+//   const icon = this.paused ? '▶' : '❚ ❚'
+//   toggleBtn.textContent = icon
+// }
 
-function updateBtn() {
-  const icon = this.paused ? '▶' : '❚ ❚'
-  toggleBtn.textContent = icon
-}
+// function skip() {
+//   video.currentTime += Number(this.dataset.skip)
+// }
 
-function skip() {
-  video.currentTime += Number(this.dataset.skip)
-}
+// function handleChangeUpdate() {
+//   video[this.name] = this.value
+// }
 
-function handleChangeUpdate() {
-  video[this.name] = this.value
-}
+// function scrab(event) {
+//   const scrabTime = (event.offsetX / progress.offsetWidth) * video.duration
+//   video.currentTime = scrabTime
+// }
 
-function scrab(event) {
-  const scrabTime = (event.offsetX / progress.offsetWidth) * video.duration
-  video.currentTime = scrabTime
-}
-
-function hundleProgress() {
-  const percent = (video.currentTime / video.duration) * 100;
-  progressBar.style.flexBasis = `${percent}%`
-}
+// function hundleProgress() {
+//   const percent = (video.currentTime / video.duration) * 100;
+//   progressBar.style.flexBasis = `${percent}%`
+// }
 
 const a = [121, 144, 19, 161, 19, 144, 19, 11];
 const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
