@@ -45,35 +45,90 @@
 // - Цвет формы в рандомном порядке меняется,
 //используя цвета из заранее подготовленного массива
 
-const forms = [
-  'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
-  'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 200px; height: 100px; border-radius: 100px / 50px;',
-  'width: 150px; height: 100px; transform: skew(20deg);',
-];
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-const randomither = (max) => {
-  return Math.floor(Math.random() * max);
-};
-const shapeEl = document.createElement('div');
+// const forms = [
+//   'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
+//   'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 200px; height: 100px; border-radius: 100px / 50px;',
+//   'width: 150px; height: 100px; transform: skew(20deg);',
+// ];
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+// const randomither = (max) => {
+//   return Math.floor(Math.random() * max);
+// };
+// const shapeEl = document.createElement('div');
 
-// shapeEl.style.cssText = forms[randomither(forms.length - 1)];
-// shapeEl.style.backgroundColor = getRandomHexColor();
-const positionEl = () => {
-  shapeEl.style.cssText = forms[randomither(forms.length - 1)];
-  shapeEl.style.backgroundColor = getRandomHexColor();
-  shapeEl.style.position = 'absolute';
-  let top =
-    100 - (shapeEl.clientHeight * 100) / document.documentElement.clientHeight;
-  let left =
-    100 - (shapeEl.clientWidth * 100) / document.documentElement.clientWidth;
-  shapeEl.style.top = `${randomither(top)}%`;
-  shapeEl.style.left = `${randomither(left)}%`;
-};
-positionEl();
-shapeEl.addEventListener('click', positionEl);
-const containerEl = document.querySelector('.container');
-containerEl.append(shapeEl);
+// // shapeEl.style.cssText = forms[randomither(forms.length - 1)];
+// // shapeEl.style.backgroundColor = getRandomHexColor();
+// const positionEl = () => {
+//   shapeEl.style.cssText = forms[randomither(forms.length - 1)];
+//   shapeEl.style.backgroundColor = getRandomHexColor();
+//   shapeEl.style.position = 'absolute';
+//   let top =
+//     100 - (shapeEl.clientHeight * 100) / document.documentElement.clientHeight;
+//   let left =
+//     100 - (shapeEl.clientWidth * 100) / document.documentElement.clientWidth;
+//   shapeEl.style.top = `${randomither(top)}%`;
+//   shapeEl.style.left = `${randomither(left)}%`;
+// };
+// positionEl();
+// shapeEl.addEventListener('click', positionEl);
+// const containerEl = document.querySelector('.container');
+// containerEl.append(shapeEl);
+
+const mediaPlayer = document.querySelector(`.player`)
+const toggleBtn = mediaPlayer.querySelector(`.toggle`)
+const video = mediaPlayer.querySelector(`.viewer`)
+const skipBtns = mediaPlayer.querySelectorAll(`[data-skip]`)
+const playerSlider = mediaPlayer.querySelectorAll(`.player__slider`)
+const progress = mediaPlayer.querySelector(`.progress`)
+const progressBar = mediaPlayer.querySelector(`.progress__filled`)
+
+let mousedown = false
+
+// console.log(toggleBtn)
+video.addEventListener(`play`, updateBtn)
+video.addEventListener(`pause`, updateBtn)
+video.addEventListener(`click`, togglePlay)
+video.addEventListener(`timeupdate`, hundleProgress)
+
+skipBtns.forEach(btn => btn.addEventListener(`click`, skip))
+playerSlider.forEach(slider => slider.addEventListener(`input`, handleChangeUpdate))
+progress.addEventListener(`click`, scrab)
+
+progress.addEventListener(`mousedown`, () => mousedown = true)
+progress.addEventListener(`mouseup`, () => mousedown = false)
+progress.addEventListener(`mousemove`, event => mousedown && scrab(event) )
+
+toggleBtn.addEventListener(`click`, togglePlay)
+
+function togglePlay() {
+  const method = video.paused ? "play" : "pause";
+  video[method]()
+}
+
+function updateBtn() {
+  const icon = this.paused ? '▶' : '❚ ❚'
+  toggleBtn.textContent = icon
+}
+
+function skip() {
+  video.currentTime += Number(this.dataset.skip)
+}
+
+function handleChangeUpdate() {
+  video[this.name] = this.value
+}
+
+function scrab(event) {
+  const scrabTime = (event.offsetX / progress.offsetWidth) * video.duration
+  video.currentTime = scrabTime
+}
+
+function hundleProgress() {
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.flexBasis = `${percent}%`
+}
+
