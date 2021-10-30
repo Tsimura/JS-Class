@@ -78,6 +78,7 @@
 // const containerEl = document.querySelector('.container');
 // containerEl.append(shapeEl);
 
+
 const mediaPlayer = document.querySelector(`.player`)
 const toggleBtn = mediaPlayer.querySelector(`.toggle`)
 const video = mediaPlayer.querySelector(`.viewer`)
@@ -132,3 +133,24 @@ function hundleProgress() {
   progressBar.style.flexBasis = `${percent}%`
 }
 
+const a = [121, 144, 19, 161, 19, 144, 19, 11];
+const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+
+function comp(a, b) {
+  if (!a || !b) return false;
+  if (a.length !== b.length) return false;
+  const sortA = [...a].sort((pre, next) => pre - next);
+  const sortB = [...b].sort((pre, next) => pre - next);
+  console.log(sortA);
+  console.log(sortB);
+  const aPow = sortA.map((e) => Math.pow(e, 2));
+  for (let i = 0; i < aPow.length; i += 1) {
+    if (aPow[i] !== sortB[i]) {
+      return false;
+    }
+  }
+  console.log(aPow);
+  return true;
+}
+
+console.log(comp(a, b));
